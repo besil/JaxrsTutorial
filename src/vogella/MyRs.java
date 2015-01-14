@@ -1,16 +1,14 @@
 package vogella;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.ws.rs.ApplicationPath;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 
-@ApplicationScoped
-@ApplicationPath("/")
-public class Hello extends Application {
+@RequestScoped
+@Path("/")
+public class MyRs {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String sayPlainTextHello() {
@@ -26,7 +24,6 @@ public class Hello extends Application {
 
 	// This method is called if HTML is request
 	@GET
-	@Path("hello")
 	@Produces(MediaType.TEXT_HTML)
 	public String sayHtmlHello() {
 		return "<html> " + "<title>" + "Hello Jersey" + "</title>"
